@@ -7,6 +7,7 @@ import java.util.UUID;
 public abstract class WingmanEntity extends SimpleAuditedEntity {
 
     @Id
+    @Column(nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 

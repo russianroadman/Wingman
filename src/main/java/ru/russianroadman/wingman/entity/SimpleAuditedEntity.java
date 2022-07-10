@@ -1,33 +1,29 @@
 package ru.russianroadman.wingman.entity;
 
 import javax.persistence.Column;
-import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 import java.util.Date;
 
 @MappedSuperclass
 public abstract class SimpleAuditedEntity {
 
-    @Column
-    Date createdAt;
+    @Column(nullable = false)
+    private Date createdAt;
 
     @Column
-    Date updatedAt;
+    private Date updatedAt;
 
     @Column
-    Date deletedAt;
+    private Date deletedAt;
+
+    @Column(nullable = false)
+    private String createdBy;
 
     @Column
-    @ManyToOne
-    Account createdBy;
+    private String updatedBy;
 
     @Column
-    @ManyToOne
-    Account updatedBy;
-
-    @Column
-    @ManyToOne
-    Account deletedBy;
+    private String deletedBy;
 
     public Date getCreatedAt() {
         return createdAt;
@@ -53,27 +49,27 @@ public abstract class SimpleAuditedEntity {
         this.deletedAt = deletedAt;
     }
 
-    public Account getCreatedBy() {
+    public String getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(Account createdBy) {
+    public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
     }
 
-    public Account getUpdatedBy() {
+    public String getUpdatedBy() {
         return updatedBy;
     }
 
-    public void setUpdatedBy(Account updatedBy) {
+    public void setUpdatedBy(String updatedBy) {
         this.updatedBy = updatedBy;
     }
 
-    public Account getDeletedBy() {
+    public String getDeletedBy() {
         return deletedBy;
     }
 
-    public void setDeletedBy(Account deletedBy) {
+    public void setDeletedBy(String deletedBy) {
         this.deletedBy = deletedBy;
     }
 }

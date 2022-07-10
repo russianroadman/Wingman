@@ -10,7 +10,7 @@ spring:
       idle-timeout: 60000
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: validate
     database-platform: org.hibernate.dialect.PostgreSQLDialect
   task:
     scheduling:

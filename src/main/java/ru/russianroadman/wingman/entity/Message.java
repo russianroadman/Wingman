@@ -1,9 +1,6 @@
 package ru.russianroadman.wingman.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.List;
 import java.util.UUID;
 
@@ -14,12 +11,63 @@ import java.util.UUID;
 public class Message extends WingmanEntity {
 
     @ManyToOne
-    Issue issue;
+    @JoinColumn(nullable = false)
+    private Issue issue;
 
     @ManyToOne
-    Account sender;
+    @JoinColumn(nullable = false)
+    private Account sender;
 
-    @ManyToMany
-    List<Tag> tags;
+    @ManyToMany(mappedBy = "messages")
+    private List<Tag> tags;
 
+    @OneToMany(mappedBy = "message")
+    private List<Attachment> attachments;
+
+    @Column
+    private String text;
+
+    public Boolean hasText() {
+        return text != null && !text.isBlank();
+    }
+
+    public Issue getIssue() {
+        return issue;
+    }
+
+    public void setIssue(Issue issue) {
+        this.issue = issue;
+    }
+
+    public Account getSender() {
+        return sender;
+    }
+
+    public void setSender(Account sender) {
+        this.sender = sender;
+    }
+
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
+    }
+
+    public List<Attachment> getAttachments() {
+        return attachments;
+    }
+
+    public void setAttachments(List<Attachment> attachments) {
+        this.attachments = attachments;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
 }
