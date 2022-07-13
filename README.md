@@ -1,2 +1,3 @@
 # wingman
-Support service API
+
+REST API for support-providing service
