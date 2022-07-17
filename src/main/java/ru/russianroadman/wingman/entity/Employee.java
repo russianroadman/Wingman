@@ -2,6 +2,7 @@ package ru.russianroadman.wingman.entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Service company employee
@@ -13,9 +14,8 @@ public class Employee extends WingmanEntity {
     @JoinColumn(nullable = false, unique = true)
     private Account account;
 
-    @ManyToOne
-    @JoinColumn(nullable = false)
-    private Department department;
+    @ManyToMany
+    private List<Department> departments;
 
     @Column(nullable = false)
     private String businessEmail;
@@ -43,12 +43,12 @@ public class Employee extends WingmanEntity {
         this.account = account;
     }
 
-    public Department getDepartment() {
-        return department;
+    public List<Department> getDepartments() {
+        return departments;
     }
 
-    public void setDepartment(Department department) {
-        this.department = department;
+    public void setDepartments(List<Department> departments) {
+        this.departments = departments;
     }
 
     public String getBusinessEmail() {

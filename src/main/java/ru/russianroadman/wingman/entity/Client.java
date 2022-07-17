@@ -14,7 +14,7 @@ public class Client extends WingmanEntity {
     private Account account;
 
     @ManyToMany
-    private List<Department> department;
+    private List<Department> departments;
 
     public Account getAccount() {
         return account;
@@ -24,11 +24,11 @@ public class Client extends WingmanEntity {
         this.account = account;
     }
 
-    public List<Department> getDepartment() {
-        return department;
+    public List<Department> getDepartments() {
+        return departments;
     }
 
-    public void setDepartment(List<Department> department) {
-        this.department = department;
+    public void setDepartments(List<Department> departments) {
+        this.departments = departments;
     }
 }
