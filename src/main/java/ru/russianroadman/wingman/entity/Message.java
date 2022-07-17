@@ -1,6 +1,7 @@
 package ru.russianroadman.wingman.entity;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -26,6 +27,28 @@ public class Message extends WingmanEntity {
 
     @Column
     private String text;
+
+    @Column
+    private Boolean isRead;
+
+    @Column
+    private Date readAt;
+
+    public Boolean getRead() {
+        return isRead;
+    }
+
+    public void setRead(Boolean read) {
+        isRead = read;
+    }
+
+    public Date getReadAt() {
+        return readAt;
+    }
+
+    public void setReadAt(Date readAt) {
+        this.readAt = readAt;
+    }
 
     public Boolean hasText() {
         return text != null && !text.isBlank();
