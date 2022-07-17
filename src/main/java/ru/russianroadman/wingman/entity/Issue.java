@@ -25,6 +25,17 @@ public class Issue extends WingmanEntity {
     @Column
     private Date closedAt;
 
+    @Column(unique = true, nullable = false)
+    private String code;
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
     public Boolean isClosed(){
         return closedAt != null;
     }
