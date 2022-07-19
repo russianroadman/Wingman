@@ -1,4 +1,4 @@
-package ru.russianroadman.wingman.service.crud.find
+package ru.russianroadman.wingman.service.data.basic.find
 
 import ru.russianroadman.wingman.entity.Attachment
 import java.util.UUID
